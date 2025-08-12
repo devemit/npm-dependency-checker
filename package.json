@@ -1,0 +1,63 @@
+{
+   "name": "npm-deps-checker",
+   "version": "1.0.0",
+   "description": "A high-performance CLI tool for checking npm dependencies",
+   "main": "src/cli.js",
+   "bin": {
+      "npm-deps-checker": "./src/cli.js"
+   },
+   "scripts": {
+      "start": "node src/cli.js",
+      "dev": "nodemon src/cli.js",
+      "test": "jest",
+      "test:watch": "jest --watch",
+      "lint": "eslint src/**/*.js",
+      "format": "prettier --write src/**/*.js",
+      "build": "echo 'No build step needed for Node.js CLI'"
+   },
+   "keywords": [
+      "cli",
+      "npm",
+      "dependencies",
+      "check",
+      "audit",
+      "security",
+      "dependency-checker",
+      "package-manager",
+      "version-checker",
+      "vulnerability-scanner"
+   ],
+   "author": "Your Name <your.email@example.com>",
+   "license": "ISC",
+   "dependencies": {
+      "commander": "^11.1.0",
+      "chalk": "^4.1.2",
+      "ora": "^5.4.1",
+      "npm-registry-fetch": "^16.0.0",
+      "semver": "^7.5.4",
+      "node-cache": "^5.1.2",
+      "axios": "^1.6.2",
+      "p-limit": "^3.1.0"
+   },
+   "devDependencies": {
+      "nodemon": "^3.0.2",
+      "jest": "^29.7.0",
+      "eslint": "^8.55.0",
+      "prettier": "^3.1.0"
+   },
+   "engines": {
+      "node": ">=18.0.0"
+   },
+   "repository": {
+      "type": "git",
+      "url": "https://github.com/yourusername/npm-dependency-check.git"
+   },
+   "bugs": {
+      "url": "https://github.com/yourusername/npm-dependency-check/issues"
+   },
+   "homepage": "https://github.com/yourusername/npm-dependency-check#readme",
+   "files": [
+      "src/**/*.js",
+      "README.md"
+   ]
+}
