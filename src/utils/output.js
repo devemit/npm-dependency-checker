@@ -120,14 +120,12 @@ function formatTable(report) {
          );
       }
 
-      console.log(
-         chalk.gray('  Run "npm-dependency-check update" for detailed update recommendations.')
-      );
+      console.log(chalk.gray('  Run "deps-checker update" for detailed update recommendations.'));
    }
 
    if (report.summary.vulnerabilities > 0) {
       console.log(chalk.red(`\n🚨 ${report.summary.vulnerabilities} vulnerabilities found!`));
-      console.log(chalk.gray('  Run "npm-dependency-check audit" for security details.'));
+      console.log(chalk.gray('  Run "deps-checker audit" for security details.'));
    }
 }
 

@@ -1,10 +1,10 @@
 {
-   "name": "npm-deps-checker",
+   "name": "cli-deps-checker",
    "version": "1.0.0",
    "description": "A high-performance CLI tool for checking npm dependencies",
    "main": "src/cli.js",
    "bin": {
-      "npm-deps-checker": "./src/cli.js"
+      "deps-checker": "./src/cli.js"
    },
    "scripts": {
       "start": "node src/cli.js",
@@ -50,12 +50,12 @@
    },
    "repository": {
       "type": "git",
-      "url": "https://github.com/yourusername/npm-dependency-check.git"
+      "url": "https://github.com/devemit/npm-dependency-checker.git"
    },
    "bugs": {
-      "url": "https://github.com/yourusername/npm-dependency-check/issues"
+      "url": "https://github.com/devemit/npm-dependency-checker/issues"
    },
-   "homepage": "https://github.com/yourusername/npm-dependency-check#readme",
+   "homepage": "https://github.com/devemit/npm-dependency-checker#readme",
    "files": [
       "src/**/*.js",
       "README.md"

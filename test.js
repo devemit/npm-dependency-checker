@@ -2,7 +2,7 @@
 
 const { execSync } = require('child_process');
 
-console.log('🧪 Testing npm-dependency-check CLI tool...\n');
+console.log('🧪 Testing cli-deps-checker CLI tool...\n');
 
 // Test 1: Help command
 console.log('1. Testing help command...');
@@ -60,5 +60,5 @@ try {
 console.log('\n🎉 All tests completed!');
 console.log('\n📋 Next steps:');
 console.log('1. Run "npm link" to make the tool globally available');
-console.log('2. Test with "npm-dependency-check check" in any project');
+console.log('2. Test with "deps-checker check" in any project');
 console.log('3. Customize the tool for your specific needs');

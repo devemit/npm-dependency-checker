@@ -220,9 +220,7 @@ function displayAuditResults(report, options) {
       console.log(chalk.bold('💡 Recommendations:'));
       console.log(chalk.yellow('  • Update affected packages to fixed versions'));
       console.log(chalk.yellow('  • Review and test changes before deploying'));
-      console.log(
-         chalk.yellow('  • Consider using "npm-dependency-check update" for automated updates')
-      );
+      console.log(chalk.yellow('  • Consider using "deps-checker update" for automated updates'));
 
       if (options.fix) {
          console.log(chalk.green('  • Auto-fix mode enabled - attempting to fix vulnerabilities'));

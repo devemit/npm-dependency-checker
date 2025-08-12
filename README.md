@@ -1,4 +1,4 @@
-# npm-dependency-check
+# cli-deps-checker
 
 A high-performance CLI tool for checking npm dependencies, security vulnerabilities, and update recommendations.
 
@@ -15,29 +15,29 @@ A high-performance CLI tool for checking npm dependencies, security vulnerabilit
 
 ```bash
 # Install globally
-npm install -g npm-dependency-check
+npm install -g cli-deps-checker
 
 # Or use npx
-npx npm-dependency-check
+npx cli-deps-checker
 
 # Or install locally
-npm install npm-dependency-check
+npm install cli-deps-checker
 ```
 
 ## 🎯 Quick Start
 
 ```bash
 # Check dependencies in current directory
-npm-dependency-check check
+deps-checker check
 
 # Check with custom options
-npm-dependency-check check --path ./package.json --depth 2 --parallel 20
+deps-checker check --path ./package.json --depth 2 --parallel 20
 
 # Security audit
-npm-dependency-check audit --severity moderate
+deps-checker audit --severity moderate
 
 # Get update recommendations
-npm-dependency-check update --major --dry-run
+deps-checker update --major --dry-run
 ```
 
 ## 📋 Commands
@@ -45,7 +45,7 @@ npm-dependency-check update --major --dry-run
 ### Check Dependencies
 
 ```bash
-npm-dependency-check check [options]
+deps-checker check [options]
 ```
 
 **Options:**
@@ -60,22 +60,22 @@ npm-dependency-check check [options]
 
 ```bash
 # Basic check
-npm-dependency-check check
+deps-checker check
 
 # Deep dependency analysis
-npm-dependency-check check --depth 3 --parallel 20
+deps-checker check --depth 3 --parallel 20
 
 # JSON output for CI/CD
-npm-dependency-check check --format json
+deps-checker check --format json
 
 # Check specific package.json
-npm-dependency-check check --path ./frontend/package.json
+deps-checker check --path ./frontend/package.json
 ```
 
 ### Security Audit
 
 ```bash
-npm-dependency-check audit [options]
+deps-checker audit [options]
 ```
 
 **Options:**
@@ -88,19 +88,19 @@ npm-dependency-check audit [options]
 
 ```bash
 # Basic security audit
-npm-dependency-check audit
+deps-checker audit
 
 # High severity only
-npm-dependency-check audit --severity high
+deps-checker audit --severity high
 
 # Auto-fix vulnerabilities
-npm-dependency-check audit --fix
+deps-checker audit --fix
 ```
 
 ### Update Recommendations
 
 ```bash
-npm-dependency-check update [options]
+deps-checker update [options]
 ```
 
 **Options:**
@@ -113,13 +113,13 @@ npm-dependency-check update [options]
 
 ```bash
 # Get update recommendations
-npm-dependency-check update
+deps-checker update
 
 # Include major updates
-npm-dependency-check update --major
+deps-checker update --major
 
 # Preview changes
-npm-dependency-check update --dry-run
+deps-checker update --dry-run
 ```
 
 ## ⚡ Performance Features
@@ -217,13 +217,13 @@ axios,1.5.0,1.6.0,minor,dependencies,0,true
 
 ```bash
 # High concurrency for large projects
-npm-dependency-check check --parallel 50
+deps-checker check --parallel 50
 
 # Disable cache for fresh results
-npm-dependency-check check --no-cache
+deps-checker check --no-cache
 
 # Shallow dependency tree for speed
-npm-dependency-check check --depth 1
+deps-checker check --depth 1
 ```
 
 ## 🛠️ Development
@@ -237,8 +237,8 @@ npm-dependency-check check --depth 1
 
 ```bash
 # Clone repository
-git clone <repository-url>
-cd npm-dependency-check
+git clone https://github.com/devemit/npm-dependency-checker.git
+cd npm-dependency-checker
 
 # Install dependencies
 npm install
@@ -259,7 +259,7 @@ npm run format
 ### Project Structure
 
 ```
-npm-dependency-check/
+npm-dependency-checker/
 ├── src/
 │   ├── cli.js              # Main CLI entry point
 │   ├── commands/
