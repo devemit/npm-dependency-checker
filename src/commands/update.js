@@ -116,7 +116,11 @@ async function getUpdateRecommendations(dependencies, npmService, options) {
 
 function analyzeAvailableUpdates(currentRange, allVersions, includeMajor) {
    const updates = [];
-   const currentVersion = currentRange.clean;
+
+   // For update recommendations, we want to compare the base version of the range
+   // with available updates, not the highest version within the range
+   const baseVersion = currentRange.clean || currentRange.original.replace(/^[\^~]/, '');
+   const currentVersion = baseVersion;
 
    if (!currentVersion) return updates;
 

@@ -27,7 +27,7 @@
       "version-checker",
       "vulnerability-scanner"
    ],
-   "author": "Your Name <your.email@example.com>",
+   "author": "Mitko Iliev <mitkoiliev505@gmail.com>",
    "license": "ISC",
    "dependencies": {
       "commander": "^11.1.0",

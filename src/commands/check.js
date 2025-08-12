@@ -93,13 +93,64 @@ async function checkDependencies(dependencies, npmService) {
 
       if (latestVersionResult.status === 'fulfilled' && latestVersionResult.value) {
          result.latestVersion = latestVersionResult.value;
-         result.updateAvailable = semver.gt(
-            latestVersionResult.value,
-            dependency.range.clean || '0.0.0'
-         );
 
-         if (result.updateAvailable) {
-            result.updateType = getUpdateType(dependency.range.clean, latestVersionResult.value);
+         const currentRange = dependency.range.original;
+         const latestVersion = latestVersionResult.value;
+
+         // Check if the latest version satisfies our current range
+         const satisfiesRange = semver.satisfies(latestVersion, currentRange);
+
+         if (satisfiesRange) {
+            // Latest version is within our current range, so we're up to date
+            result.updateAvailable = false;
+            result.updateType = 'none';
+         } else {
+            // Latest version is outside our range, so we need an update
+            result.updateAvailable = true;
+
+            // Get all versions to find the highest version within our current range
+            try {
+               const allVersions = await npmService.getVersions(packageName);
+               const maxInRange = semver.maxSatisfying(allVersions, currentRange);
+
+               // For range-based versions, we need to determine the update type by comparing
+               // the highest version within our current range with the latest version available
+               if (maxInRange) {
+                  // Compare the highest version in our range with the latest version
+                  result.updateType = getUpdateType(maxInRange, latestVersion);
+               } else {
+                  // We need to update the range itself
+                  // For range-based versions, we need to determine the update type differently
+                  // Get the highest version that satisfies our current range
+                  const allVersions = await npmService.getVersions(packageName);
+                  const currentMax = semver.maxSatisfying(allVersions, currentRange);
+
+                  if (currentMax) {
+                     // Compare the highest version in our range with the latest version
+                     result.updateType = getUpdateType(currentMax, latestVersion);
+                  } else {
+                     // No version satisfies our current range, so we need to update the range
+                     // Try to get a representative version from the range
+                     const cleanVersion = dependency.range.clean;
+                     if (cleanVersion) {
+                        result.updateType = getUpdateType(cleanVersion, latestVersion);
+                     } else {
+                        // For range-based versions without a clean version, we need to estimate
+                        // Extract the base version from the range (e.g., ^4.1.2 -> 4.1.2)
+                        const baseVersion = currentRange.replace(/^[\^~]/, '');
+                        result.updateType = getUpdateType(baseVersion, latestVersion);
+                     }
+                  }
+               }
+            } catch (error) {
+               // Fallback
+               const cleanVersion = dependency.range.clean;
+               if (cleanVersion) {
+                  result.updateType = getUpdateType(cleanVersion, latestVersion);
+               } else {
+                  result.updateType = 'unknown';
+               }
+            }
          }
       }
 
