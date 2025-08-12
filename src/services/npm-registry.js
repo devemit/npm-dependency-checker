@@ -17,7 +17,7 @@ class NpmRegistryService {
          baseURL: this.baseURL,
          timeout: options.timeout || 10000,
          headers: {
-            'User-Agent': 'cli-deps-checker/1.0.0',
+            'User-Agent': 'cli-depsnap/1.0.0',
             Accept: 'application/json',
          },
          // Connection pooling

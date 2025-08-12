@@ -10,7 +10,7 @@ const program = new Command();
 
 // Set up the CLI
 program
-   .name('deps-checker')
+   .name('depsnap')
    .description('A high-performance CLI tool for checking npm dependencies')
    .version('1.0.0');
 

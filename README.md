@@ -1,4 +1,4 @@
-# cli-deps-checker
+# cli-depsnap
 
 A high-performance CLI tool for checking npm dependencies, security vulnerabilities, and update recommendations.
 
@@ -15,29 +15,29 @@ A high-performance CLI tool for checking npm dependencies, security vulnerabilit
 
 ```bash
 # Install globally
-npm install -g cli-deps-checker
+npm install -g cli-depsnap
 
 # Or use npx
-npx cli-deps-checker
+npx cli-depsnap
 
 # Or install locally
-npm install cli-deps-checker
+npm install cli-depsnap
 ```
 
 ## 🎯 Quick Start
 
 ```bash
 # Check dependencies in current directory
-deps-checker check
+depsnap check
 
 # Check with custom options
-deps-checker check --path ./package.json --depth 2 --parallel 20
+depsnap check --path ./package.json --depth 2 --parallel 20
 
 # Security audit
-deps-checker audit --severity moderate
+depsnap audit --severity moderate
 
 # Get update recommendations
-deps-checker update --major --dry-run
+depsnap update --major --dry-run
 ```
 
 ## 📋 Commands
@@ -45,7 +45,7 @@ deps-checker update --major --dry-run
 ### Check Dependencies
 
 ```bash
-deps-checker check [options]
+depsnap check [options]
 ```
 
 **Options:**
@@ -60,22 +60,22 @@ deps-checker check [options]
 
 ```bash
 # Basic check
-deps-checker check
+depsnap check
 
 # Deep dependency analysis
-deps-checker check --depth 3 --parallel 20
+depsnap check --depth 3 --parallel 20
 
 # JSON output for CI/CD
-deps-checker check --format json
+depsnap check --format json
 
 # Check specific package.json
-deps-checker check --path ./frontend/package.json
+depsnap check --path ./frontend/package.json
 ```
 
 ### Security Audit
 
 ```bash
-deps-checker audit [options]
+depsnap audit [options]
 ```
 
 **Options:**
@@ -88,19 +88,19 @@ deps-checker audit [options]
 
 ```bash
 # Basic security audit
-deps-checker audit
+depsnap audit
 
 # High severity only
-deps-checker audit --severity high
+depsnap audit --severity high
 
 # Auto-fix vulnerabilities
-deps-checker audit --fix
+depsnap audit --fix
 ```
 
 ### Update Recommendations
 
 ```bash
-deps-checker update [options]
+depsnap update [options]
 ```
 
 **Options:**
@@ -113,13 +113,13 @@ deps-checker update [options]
 
 ```bash
 # Get update recommendations
-deps-checker update
+depsnap update
 
 # Include major updates
-deps-checker update --major
+depsnap update --major
 
 # Preview changes
-deps-checker update --dry-run
+depsnap update --dry-run
 ```
 
 ## ⚡ Performance Features
@@ -217,13 +217,13 @@ axios,1.5.0,1.6.0,minor,dependencies,0,true
 
 ```bash
 # High concurrency for large projects
-deps-checker check --parallel 50
+depsnap check --parallel 50
 
 # Disable cache for fresh results
-deps-checker check --no-cache
+depsnap check --no-cache
 
 # Shallow dependency tree for speed
-deps-checker check --depth 1
+depsnap check --depth 1
 ```
 
 ## 🛠️ Development
@@ -295,3 +295,7 @@ This project is licensed under the ISC License.
 - Styled with [Chalk](https://github.com/chalk/chalk) for terminal colors
 - Powered by [npm-registry-fetch](https://github.com/npm/npm-registry-fetch) for registry access
 - Version parsing with [semver](https://github.com/npm/node-semver)
+
+## About
+
+www.npmjs.com/package/cli-depsnap

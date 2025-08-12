@@ -1,10 +1,10 @@
 {
-   "name": "cli-deps-checker",
+   "name": "cli-depsnap",
    "version": "1.0.0",
    "description": "A high-performance CLI tool for checking npm dependencies",
    "main": "src/cli.js",
    "bin": {
-      "deps-checker": "./src/cli.js"
+      "depsnap": "./src/cli.js"
    },
    "scripts": {
       "start": "node src/cli.js",
